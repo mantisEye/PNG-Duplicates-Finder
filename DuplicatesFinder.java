@@ -76,13 +76,13 @@ public class DuplicatesFinder {
                         Path sourcePath = Path.of("./Examine", compareFile.getName());
                         Path destinationPath = Path.of("./Output", "match" + (totalGroups + 1) + "-" + groupMember + "_" + compareFile.getName());
 
-                        groupMember++;
-
                         try {
                             Files.move(sourcePath, destinationPath, StandardCopyOption.REPLACE_EXISTING);
                         } catch (IOException e) {
                             System.out.println("Failed to move the file: " + e.getMessage());
                         }
+
+                        groupMember++;
 
                         // correct the array
                         shiftLeft(files, j, l);
